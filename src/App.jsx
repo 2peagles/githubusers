@@ -22,20 +22,20 @@ function App() {
         <button>search </button>
       </article>
 
-      <article  id='card'>
-        <img src='/assets/react.svg' alt=''/>
+      <article  className='card'>
         <div>
-          <div>
+        <img src='/assets/react.svg' alt=''/>
+          <div className='card_intro'>
               <span id='heading'>name</span>
               <span>joined </span>
-              <a><p>profile link</p></a>
-              <p>bio</p>
+              <a><p>profile link !</p></a>
+              <p>bio Lorem, ipsum dolor sit amet consectetur </p>
+            </div>
           </div>
-            {/* <span  id='heading'>name</span>
-          <span>joined </span>
-          <a><p>profile link</p></a>
-          <p>bio</p> */}
-          <div className='repo'>
+
+          <div className='cards'>
+          <div className='card_subcontent'>
+            <div className='cards_info'>
             <div className='repo'>
                 <span>repos</span>
                 <span>repos</span>
@@ -47,15 +47,20 @@ function App() {
               <div className='following'>
                 <span>folllowing</span>
                 <span>repos</span>
+              </div>       
               </div>
           </div>
+          <div className='card_subcontent'>
+            <div className='cards_contact_info'>
           <div className='contact'>
-            <span>location</span>
-            <a>twitter </a>
-            <a>link</a>
-            <a>proile </a>
+            <span><img src='/assets/icon-location.svg' alt='location' /> location</span>
+                  <a><img src='/assets/icon-twitter.svg' alt='twitter link' /> twitter </a>
+                  <a> <img src='/assets/icon-website.svg' alt='link icon' /> link</a>
+                  <a><img src='/assets/icon-company.svg' alt='building' /> proile </a>
           </div>
         </div>
+            </div>
+          </div>
       </article>
       </div>
     </div>
