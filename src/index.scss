@@ -25,6 +25,7 @@
       --articlebg:#1e2a47;
       --button: #0079ff; 
       --headingtext: #fff;
+      --lightblue: #4b6a9b;
         --blue: #0079ff;
         --white: #fff;
         --text: #fff;
@@ -34,9 +35,9 @@
     --articlebg:#fff;
     --button: #0079ff;
     --headingtext:#141d2f;
-      --text: #4b6a9b;
+    --lightblue: #222731;
+    --text: #4b6a9b;
       --white: #222731;
-      --lightblue: #697c9a;
       --medblue: #4b6a9b;
       --darkblue: #2b3442;
 }
@@ -95,7 +96,7 @@ button:not(.toggle) {
   color: #fff;
   background-color: var(--button);
   &:hover{
-    background-color: var(--button);
+    background-color: rgba(0, 121, 255, .7);
   }
 }
 .toggle {
@@ -104,11 +105,17 @@ button:not(.toggle) {
   text-transform: capitalize;
   // border:1px solid white;
   background-color: transparent;
+  &:hover{
+    color:var(--lightblue);
+  }
 }
 #darktoggle,
 #lighttoggle {
   color: var(--text);
   @include space-between-content();
+  &:hover{
+      color: var(--lightblue);
+  }
 }
 
 // end buttons
@@ -163,10 +170,6 @@ button:not(.toggle) {
 }
 .main_content{
   width:100%;
-  // border:1px solid white;
-  // @media (width > 1000px) {
-  //   width:80%;
-  // }
 }
 .heading{
   color:var(--headingtext);
@@ -217,7 +220,6 @@ button:not(.toggle) {
   }
 }
 .icon_content{
-  // height:63px;
   margin-top: 1.5rem;
   line-height: 2rem;
   @media (width > 700px) {
