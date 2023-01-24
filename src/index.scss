@@ -144,6 +144,7 @@ button:not(.toggle) {
               border: none;
               outline: none;
               padding:1rem;
+              color:var(--text);
               background-color: transparent;
               width: clamp(170px, 50%, 730px);
               &::placeholder{
@@ -154,6 +155,11 @@ button:not(.toggle) {
         }
     }
 }
+form{
+  @include space-between-content();
+   width:100%;
+}
+
 .main{
   flex-direction: column;
 }

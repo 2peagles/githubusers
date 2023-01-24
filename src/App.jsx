@@ -19,43 +19,53 @@ function App() {
 
  const[name, setName] = useState(' ');
  const[userName, setUsername] = useState('');
+ const[bio, setBio] = useState('');
+ const[created, setCreated] = useState('');
+ const[company, setCompany] = useState('');
+ const[html_url, setHtml_Url]= useState('');
   const [twitter, setTwitter] = useState('');
   const [location, setLocation] = useState('');
  const [followers,setFollowers] = useState('');
  const [following, setFollowing] = useState('');
  const [repos, setRepos] = useState('');
  const [avatar, setAvatar] = useState('');
+ const[blog, setBlog] = useState('');
  const [userInput, setUserInput] = useState('');
  const[error, setError] = useState(null);
  
- useEffect(()=>{
+ useEffect(() => {
   //  fetch(' https://api.github.com/user')
-  fetch('https://api.github.com/users')
+  fetch('https://api.github.com/users/2peagles')
     .then(res => res.json())
     .then(data => {
       setUser(data);
     });
  }, [ ]);
 //  function runs once onload
- const setUser = ({name, login, followers ,following, public_repos, avatar_url, location, twitter}) => {
+ const setUser = ({name, login, created_at, followers ,following, public_repos, avatar_url, location, Company, twitter_username, bio,html_url, blog}) => {
     setName(name);
     setUsername(login);
+    setBio(bio);
+    setBlog(blog);
+    setCompany(Company);
+    setCreated(created_at)
+    setHtml_Url(html_url);
     setFollowers(followers)
     setFollowing(following);
     setRepos(public_repos);
     setAvatar(avatar_url);
     setLocation(location);
-    setTwitter(twitter);
+    setTwitter(twitter_username);
  }
 
- const handleSearch = (e)=>{
+ const handleSearch = (e) => {
   setUserInput(e.target.value)
  }
  const handleSubmit = () => {
-   fetch(`https://api.github.com/users/${userinput}`)
+   fetch(`https://api.github.com/users/${userInput}`)
     .then(res => res.json())
     .then(data => {
-        if (data.message){
+        if (data.message) {
           setError(data.message)
         } else {
           setUser(data);
@@ -75,14 +85,13 @@ function App() {
       </article>
 
       <article>
-        <form onSubmit={handleSubmit}> 
-            {/* <div> */}
-              {/* <img src='/assets/icon-search.svg' alt='light mode' /> */}
+        <form> 
+            <div>
+              <img src='/assets/icon-search.svg' alt='light mode' />
               <input placeholder=' Search Github username...'  onChange={handleSearch} />
-            {/* </div> */}
+            </div>
             <button onSubmit={handleSubmit} content='Search'>search </button>
         </form>
-  
       </article>
 
       { error ? (<h1>{error}</h1>) : (
@@ -90,10 +99,10 @@ function App() {
           <div className='main_intro'>
               <img src={avatar} alt='' className='profile' />
               <div>
-                <p className='heading'>  {error ? (<span>{name}</span>) : (<span>not found</span>)}</p> 
-            <p>joined </p>
-            <p><a>profile line</a></p>
-            <p>bio Lorem, ipsum dolor sit amet consectetur! Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+                <p className='heading'>  {name}</p> 
+            <p>joined {created}</p>
+            <p><a href={html_url}>@{userName}</a></p>
+            <p>{bio}</p>
           </div>
           </div>
 
@@ -112,10 +121,10 @@ function App() {
             </ol>
 
             <ol className='icon_content'>
-                <li><img src='/assets/icon-location.svg' alt='location' /> {error ? (<span>{location}</span>) : (<span>not found</span>)}</li>
+                <li><img src='/assets/icon-location.svg' alt='location' /> {location} </li>
               <li> <a><img src='/assets/icon-twitter.svg' alt='twitter link' /> {error ? (<span>{twitter}</span>) : (<span>not found</span>)}</a></li>  
-                <li><a> <img src='/assets/icon-website.svg' alt='link icon' /> {error ? (<span>{link}</span>) : (<span>not found</span>)}</a></li>
-                <li><a><img src='/assets/icon-company.svg' alt='building' /> {error ? (<span>{profile}</span>) : (<span>not found</span>)}</a></li>
+                <li><a> <img src='/assets/icon-website.svg' alt='link icon' /> {blog}</a></li>
+                <li><a><img src='/assets/icon-company.svg' alt='building' /> {company}</a></li>
             </ol>
           </div>
         </article>
