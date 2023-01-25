@@ -42,6 +42,8 @@ function App() {
     });
  }, [ ]);
 //  function runs once onload
+
+//messy 
  const setUser = ({name, login, created_at, followers ,following, public_repos, avatar_url, location, Company, twitter_username, bio,html_url, blog}) => {
     setName(name);
     setUsername(login);
@@ -85,12 +87,12 @@ function App() {
       </article>
 
       <article>
-        <form> 
+        <form onSubmit={handleSubmit}> 
             <div>
               <img src='/assets/icon-search.svg' alt='light mode' />
               <input placeholder=' Search Github username...'  onChange={handleSearch} />
             </div>
-            <button onSubmit={handleSubmit} content='Search'>search </button>
+            <button content='Search'>search </button>
         </form>
       </article>
 
@@ -110,21 +112,21 @@ function App() {
           <div className='main_content'>
             <ol className='githubuser_data'>
               <li>Repos
-                  <li>{repos}</li>
+                  <p>{repos} </p>
               </li>
               <li>followers
-                  <li>{followers}</li>
+                  <p>{followers} </p>
               </li>
               <li>following
-                  <li>{following}</li>
+                  <p>{following} </p>
               </li>
             </ol>
 
             <ol className='icon_content'>
                 <li><img src='/assets/icon-location.svg' alt='location' /> {location} </li>
               <li> <a><img src='/assets/icon-twitter.svg' alt='twitter link' /> {error ? (<span>{twitter}</span>) : (<span>not found</span>)}</a></li>  
-                <li><a> <img src='/assets/icon-website.svg' alt='link icon' /> {blog}</a></li>
-                <li><a><img src='/assets/icon-company.svg' alt='building' /> {company}</a></li>
+                <li><a> <img src='/assets/icon-website.svg' alt='link icon' /> {error ? (<span>{blog}</span>) : (<span>not found</span>)}</a></li>
+                <li><a><img src='/assets/icon-company.svg' alt='building' /> {error ? (<span>{company}</span>) : (<span>not found</span>)}</a></li>
             </ol>
           </div>
         </article>
