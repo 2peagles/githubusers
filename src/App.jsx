@@ -124,9 +124,9 @@ function App() {
 
             <ol className='icon_content'>
                 <li><img src='/assets/icon-location.svg' alt='location' /> {location} </li>
-              <li> <a><img src='/assets/icon-twitter.svg' alt='twitter link' /> {error ? (<span>{twitter}</span>) : (<span>not found</span>)}</a></li>  
-                <li><a> <img src='/assets/icon-website.svg' alt='link icon' /> {error ? (<span>{blog}</span>) : (<span>not found</span>)}</a></li>
-                <li><a><img src='/assets/icon-company.svg' alt='building' /> {error ? (<span>{company}</span>) : (<span>not found</span>)}</a></li>
+              <li> <a><img src='/assets/icon-twitter.svg' alt='twitter link' /> {error ? (<span>{twitter}</span>) : (<span>not available</span>)}</a></li>  
+                <li><a> <img src='/assets/icon-website.svg' alt='link icon' /> {error ? (<span>{blog}</span>) : (<span>not available</span>)}</a></li>
+                <li><a><img src='/assets/icon-company.svg' alt='building' /> {error ? (<span>{company}</span>) : (<span>not available</span>)}</a></li>
             </ol>
           </div>
         </article>
