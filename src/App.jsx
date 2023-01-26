@@ -35,12 +35,13 @@ function App() {
  
  useEffect(() => {
   //  fetch(' https://api.github.com/user')
-  fetch('https://api.github.com/users/2peagles')
+  fetch('https://api.github.com/users')
     .then(res => res.json())
     .then(data => {
-      setUser(data);
+      console.log(setUser(data))
+      // setUser(data);
     });
- }, [ ]);
+ }, []);
 //  function runs once onload
 
 //messy 
@@ -75,6 +76,7 @@ function App() {
         }
     })
  }
+
   return (
     <div id='app' className={!toggle ? 'dark' : 'light'}>
       <div className='app_content'>

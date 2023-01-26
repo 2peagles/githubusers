@@ -117,8 +117,10 @@ button:not(.toggle) {
       color: var(--lightblue);
   }
 }
-
 // end buttons
+#app #intro{
+  background-color: transparent;
+}
 #app{
   @include center-content();
   background-color: var(--background);
